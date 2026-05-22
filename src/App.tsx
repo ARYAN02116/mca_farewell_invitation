@@ -519,11 +519,11 @@ export default function App() {
       <EventDetailCard />
       <CategorySection />
       <PersonalInvitation
-        id="student-invitation"
-        image="/student-canva.png"
-        label="Student Canva invitation image"
+        id="senior-invitation"
+        image="senior.jpeg"
+        label="open card"
         icon="🎓"
-        title="Dear Students"
+        title="Dear Seniors"
         highlights={invitationHighlights}
         body={
           <>
@@ -536,11 +536,11 @@ export default function App() {
         }
       />
       <PersonalInvitation
-        id="teacher-invitation"
-        image="/teacher-canva.png"
-        label="Teacher Canva invitation image"
+        id="faculty"
+        image="faculty.jpeg"
+        label="open card"
         icon="🌸"
-        title="Respected Teachers"
+        title="Respected Faculty"
         highlights={teacherHighlights}
         reverse
         body={
