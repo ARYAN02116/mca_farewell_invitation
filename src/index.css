@@ -1,0 +1,513 @@
+@import "tailwindcss";
+
+:root {
+  color: #443658;
+  background: #fafafa;
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-synthesis: none;
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: #fafafa;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at 12% 8%, rgba(255, 232, 240, 0.78), transparent 34rem),
+    radial-gradient(circle at 82% 14%, rgba(230, 244, 255, 0.86), transparent 34rem),
+    linear-gradient(135deg, #fafafa 0%, #fff0e5 52%, #ede7ff 100%);
+}
+
+::selection {
+  color: #3f3354;
+  background: rgba(243, 217, 165, 0.72);
+}
+
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.hero-stage {
+  background:
+    radial-gradient(circle at 50% 28%, rgba(255, 255, 255, 0.94), transparent 21rem),
+    radial-gradient(circle at 24% 26%, rgba(255, 232, 240, 0.95), transparent 29rem),
+    radial-gradient(circle at 76% 30%, rgba(230, 244, 255, 0.95), transparent 31rem),
+    linear-gradient(125deg, #ede7ff 0%, #e6f4ff 50%, #fff0e5 100%);
+}
+
+.hero-stage::before {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.45) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.42) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(circle at center, black, transparent 72%);
+  opacity: 0.48;
+}
+
+.hero-stage::after {
+  position: absolute;
+  inset: auto 8% 7% 8%;
+  height: 1px;
+  content: "";
+  background: linear-gradient(90deg, transparent, rgba(243, 217, 165, 0.95), transparent);
+  filter: blur(0.2px);
+}
+
+.premium-glass {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.78);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3)),
+    linear-gradient(135deg, rgba(237, 231, 255, 0.52), rgba(255, 232, 240, 0.36));
+  box-shadow:
+    0 34px 110px rgba(160, 135, 215, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(24px) saturate(150%);
+}
+
+.premium-glass::before {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background:
+    radial-gradient(circle at 15% 10%, rgba(255, 255, 255, 0.88), transparent 24rem),
+    radial-gradient(circle at 92% 85%, rgba(243, 217, 165, 0.32), transparent 20rem);
+  pointer-events: none;
+}
+
+.premium-glass > * {
+  position: relative;
+  z-index: 1;
+}
+
+.soft-orb {
+  position: fixed;
+  z-index: 0;
+  pointer-events: none;
+  border-radius: 999px;
+  filter: blur(22px);
+  opacity: 0.7;
+  animation: orbDrift 18s ease-in-out infinite alternate;
+}
+
+.orb-one {
+  top: 14%;
+  left: -9rem;
+  width: 22rem;
+  height: 22rem;
+  background: rgba(255, 232, 240, 0.82);
+}
+
+.orb-two {
+  right: -10rem;
+  top: 43%;
+  width: 25rem;
+  height: 25rem;
+  background: rgba(230, 244, 255, 0.82);
+  animation-delay: -6s;
+}
+
+.orb-three {
+  bottom: 4rem;
+  left: 18%;
+  width: 18rem;
+  height: 18rem;
+  background: rgba(220, 203, 255, 0.68);
+  animation-delay: -11s;
+}
+
+.particle-field {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.particle-field span {
+  position: absolute;
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 999px;
+  background: rgba(243, 217, 165, 0.78);
+  box-shadow: 0 0 20px rgba(243, 217, 165, 0.55);
+  animation: particleFloat 14s linear infinite;
+}
+
+.particle-field span:nth-child(1) {
+  left: 9%;
+  animation-delay: 0s;
+}
+
+.particle-field span:nth-child(2) {
+  left: 24%;
+  animation-delay: -8s;
+  background: rgba(220, 203, 255, 0.7);
+}
+
+.particle-field span:nth-child(3) {
+  left: 43%;
+  animation-delay: -4s;
+  background: rgba(255, 232, 240, 0.72);
+}
+
+.particle-field span:nth-child(4) {
+  left: 62%;
+  animation-delay: -10s;
+}
+
+.particle-field span:nth-child(5) {
+  left: 78%;
+  animation-delay: -2s;
+  background: rgba(230, 244, 255, 0.9);
+}
+
+.particle-field span:nth-child(6) {
+  left: 91%;
+  animation-delay: -12s;
+  background: rgba(220, 203, 255, 0.74);
+}
+
+.floating-cap {
+  opacity: 0.74;
+  filter: drop-shadow(0 20px 24px rgba(126, 95, 176, 0.18));
+  animation: capFloat 8.5s ease-in-out infinite;
+}
+
+.sparkle {
+  width: 0.65rem;
+  height: 0.65rem;
+  transform: rotate(45deg);
+  border-radius: 0.16rem;
+  background: rgba(243, 217, 165, 0.95);
+  box-shadow: 0 0 26px rgba(243, 217, 165, 0.82);
+  animation: sparkleTwinkle 2.8s ease-in-out infinite;
+}
+
+.sparkle::before,
+.sparkle::after {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  content: "";
+  transform: translate(-50%, -50%);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.sparkle::before {
+  width: 1.55rem;
+  height: 0.12rem;
+}
+
+.sparkle::after {
+  width: 0.12rem;
+  height: 1.55rem;
+}
+
+.confetti-piece {
+  top: -2rem;
+  z-index: 2;
+  width: 0.55rem;
+  height: 1.1rem;
+  border-radius: 999px;
+  opacity: 0.68;
+  animation: confettiFall 9.5s linear infinite;
+}
+
+.floating-panel {
+  animation: panelFloat 7.5s ease-in-out infinite;
+}
+
+.shine-card::after {
+  position: absolute;
+  inset: -55% auto -55% -40%;
+  width: 32%;
+  content: "";
+  transform: rotate(18deg) translateX(-150%);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.76), transparent);
+  opacity: 0;
+  transition: opacity 0.45s ease;
+}
+
+.shine-card:hover::after {
+  opacity: 1;
+  animation: shineSweep 1.2s ease forwards;
+}
+
+.button-shine {
+  position: absolute;
+  inset: -50% auto -50% -35%;
+  width: 32%;
+  transform: rotate(18deg);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.86), transparent);
+  animation: buttonShine 2.7s ease-in-out infinite;
+}
+
+.canva-fallback {
+  overflow: hidden;
+}
+
+.canva-fallback::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background: linear-gradient(115deg, transparent 30%, rgba(255, 255, 255, 0.58), transparent 70%);
+  transform: translateX(-120%);
+  animation: softScan 4.8s ease-in-out infinite;
+}
+
+.envelope-scene {
+  perspective: 1400px;
+}
+
+.envelope {
+  position: relative;
+  min-height: 660px;
+  isolation: isolate;
+  transform-style: preserve-3d;
+  animation: envelopeFloat 7s ease-in-out infinite;
+}
+
+.envelope-back {
+  position: absolute;
+  inset: 25% 4% 4%;
+  z-index: 1;
+  border-radius: 2.5rem;
+  background: linear-gradient(135deg, rgba(255, 232, 240, 0.95), rgba(230, 244, 255, 0.95));
+  box-shadow: 0 36px 110px rgba(151, 123, 205, 0.2);
+}
+
+.envelope-letter {
+  z-index: 4;
+  width: calc(100% - 5rem);
+  margin: 0 auto;
+  padding: clamp(2rem, 5vw, 4.25rem);
+  text-align: center;
+  transform: translateY(5rem);
+  animation: letterRise 5.8s ease-in-out infinite;
+}
+
+.envelope-front {
+  position: absolute;
+  right: 4%;
+  bottom: 4%;
+  left: 4%;
+  z-index: 5;
+  height: 47%;
+  clip-path: polygon(0 18%, 50% 62%, 100% 18%, 100% 100%, 0 100%);
+  border-radius: 0 0 2.5rem 2.5rem;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.6), transparent 45%),
+    linear-gradient(135deg, #ede7ff, #ffe8f0 52%, #fff0e5);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+.envelope-flap {
+  position: absolute;
+  top: 25%;
+  right: 4%;
+  left: 4%;
+  z-index: 6;
+  height: 34%;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  transform-origin: top center;
+  background: linear-gradient(135deg, #dccbff, #ffe8f0 54%, #f3d9a5);
+  filter: drop-shadow(0 22px 28px rgba(151, 123, 205, 0.16));
+  animation: flapOpen 5.8s ease-in-out infinite;
+}
+
+.typing-line {
+  width: 0;
+  max-width: 100%;
+  animation:
+    typing 4.8s steps(50, end) 0.4s forwards,
+    caretBlink 0.86s step-end infinite;
+}
+
+@keyframes orbDrift {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(3rem, -2rem, 0) scale(1.08);
+  }
+}
+
+@keyframes particleFloat {
+  0% {
+    transform: translateY(108vh) scale(0.72);
+    opacity: 0;
+  }
+  14% {
+    opacity: 0.78;
+  }
+  100% {
+    transform: translateY(-12vh) scale(1.18);
+    opacity: 0;
+  }
+}
+
+@keyframes capFloat {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(-7deg);
+  }
+  50% {
+    transform: translate3d(0.8rem, -1.6rem, 0) rotate(7deg);
+  }
+}
+
+@keyframes sparkleTwinkle {
+  0%,
+  100% {
+    transform: rotate(45deg) scale(0.72);
+    opacity: 0.28;
+  }
+  50% {
+    transform: rotate(45deg) scale(1.18);
+    opacity: 1;
+  }
+}
+
+@keyframes confettiFall {
+  0% {
+    transform: translate3d(0, -8vh, 0) rotate(0deg);
+  }
+  100% {
+    transform: translate3d(3rem, 112vh, 0) rotate(360deg);
+  }
+}
+
+@keyframes panelFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-0.9rem);
+  }
+}
+
+@keyframes shineSweep {
+  from {
+    transform: rotate(18deg) translateX(-150%);
+  }
+  to {
+    transform: rotate(18deg) translateX(520%);
+  }
+}
+
+@keyframes buttonShine {
+  0%,
+  28% {
+    transform: rotate(18deg) translateX(-180%);
+  }
+  62%,
+  100% {
+    transform: rotate(18deg) translateX(520%);
+  }
+}
+
+@keyframes softScan {
+  0%,
+  35% {
+    transform: translateX(-120%);
+  }
+  70%,
+  100% {
+    transform: translateX(120%);
+  }
+}
+
+@keyframes envelopeFloat {
+  0%,
+  100% {
+    transform: translateY(0) rotateX(0deg);
+  }
+  50% {
+    transform: translateY(-0.8rem) rotateX(1.5deg);
+  }
+}
+
+@keyframes flapOpen {
+  0%,
+  28% {
+    transform: rotateX(0deg);
+  }
+  44%,
+  100% {
+    transform: rotateX(178deg);
+  }
+}
+
+@keyframes letterRise {
+  0%,
+  28% {
+    transform: translateY(5rem) scale(0.96);
+  }
+  48%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 50ch;
+  }
+}
+
+@keyframes caretBlink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+@media (max-width: 768px) {
+  .envelope {
+    min-height: 790px;
+  }
+
+  .envelope-letter {
+    width: calc(100% - 1.5rem);
+    transform: translateY(4rem);
+  }
+
+  .envelope-back,
+  .envelope-front,
+  .envelope-flap {
+    right: 0.25rem;
+    left: 0.25rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
