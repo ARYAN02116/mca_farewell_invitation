@@ -520,8 +520,7 @@ export default function App() {
       <CategorySection />
       <PersonalInvitation
         id="senior-invitation"
-        image="senior.jpeg"
-        label="open card"
+        
         icon="🎓"
         title="Dear Seniors"
         highlights={invitationHighlights}
@@ -537,8 +536,7 @@ export default function App() {
       />
       <PersonalInvitation
         id="faculty"
-        image="faculty.jpeg"
-        label="open card"
+      
         icon="🌸"
         title="Respected Faculty"
         highlights={teacherHighlights}
